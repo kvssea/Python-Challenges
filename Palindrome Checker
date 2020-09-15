@@ -1,0 +1,31 @@
+This problem was asked by Amazon.
+
+Given a string, determine whether any permutation of it is a palindrome.
+
+For example, carrace should return true, since it can be rearranged to form racecar, which is a palindrome. daily should return false, since there's no rearrangement that can form a palindrome.
+
+
+
+def pal_check(word):
+  word = word.replace(" ", "").lower()
+  new_dict = {}
+  for letter in word:
+    new_dict.update({letter : word.count(letter)})
+  
+  odd_count = 0
+  
+  for item in new_dict.values():
+    if item % 2 != 0:
+      odd_count += 1
+      
+  if odd_count > 1:
+    print "not a palindrome"
+   
+    
+  else:
+    print "palindrome"
+   
+    
+    
+
+pal_check('Al lets Della call Ed Stella')
